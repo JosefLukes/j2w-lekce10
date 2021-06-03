@@ -2,29 +2,35 @@
 <html lang="cs" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Seznam školních tříd</title>
+    <title>Detail školní třídy</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
 </head>
 <body>
-<h1>Třída <span th:text="${trida}"> 9.X</span>  </h1>
-
-<table>
-    <thead>
-    <tr>
-        <th>Třídní učitel: </th>
-        <td  th:text="${ucitel.jmeno} + ' '"> Učitel </td>
-        <td  th:text="${ucitel.prijmeni}"> Učitel </td>
-    </tr>
-    </thead>
-    <tbody>
-    <th>Studenti: </th>
-    <table  th:each="student: ${studenti}">
+<div class="d-flex flex-column justify-content-center align-items-center">
+    <h1>Třída <span th:text="${trida}"> 9.X</span></h1>
+    <table class="table">
+        <thead>
         <tr>
-            <a th:href="@{'/' + ${trida} +'/' + ${student.id}}" th:text="${student.jmeno} + ' ' + ${student.prijmeni}" >Jan</a>
+            <th>Třídní učitel:</th>
+            <td th:text="${ucitel.jmeno} + ' '"> Učitel</td>
+            <td th:text="${ucitel.prijmeni}"> Učitel</td>
         </tr>
+        </thead>
+        <tbody>
+
+        <th>Studenti:</th>
+        <table th:each="student: ${studenti}" class="table">
+            <tr>
+                <a th:href="@{'/' + ${trida} +'/' + ${student.id}}"
+                   th:text="${student.jmeno} + ' ' + ${student.prijmeni}">Jan</a>
+            </tr>
+        </table>
+        </tbody>
+
+        <br>
+        <a href="/" class="btn btn-primary">Zpět na seznam tříd</a>
     </table>
-    </tbody>
-<table>
-    <br>
-    <a href="/">Zpět na seznam tříd</a>
+</div>
 </body>
 </html>
