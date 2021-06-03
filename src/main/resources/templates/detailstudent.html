@@ -10,13 +10,9 @@
 <div class="d-flex flex-column justify-content-center align-items-center">
     <h1>Třída <a th:href="@{'/' + ${trida}}" th:text="${trida}"> 9.X</a></h1>
     <table class="table">
-        <thead>
-        <tr class="title">
-            <th>Student:</th>
-            <td th:text="${student.jmeno} + ' '"> Student</td>
-            <td th:text="${student.prijmeni}"> Student</td>
+        <tr>
+            <th th:text="'Student: ' +${student.jmeno} + ' ' + ${student.prijmeni}">Student</th>
         </tr>
-        </thead>
     </table>
     <table class="table">
         <h2>Rodiče: </h2>
@@ -25,16 +21,12 @@
             <th> telefon</th>
             <th> email</th>
         </tr>
-        <tr></tr>
-
         <tr th:each="rodic: ${rodice}">
             <td th:text="${rodic.jmeno} + ' ' + ${rodic.prijmeni}"> Rodič</td>
             <td th:if="${rodic.telefon} != null" th:text="${rodic.telefon}"> Rodič tel</td>
             <td th:if="${rodic.email} != null" th:text="${rodic.email}"> Rodič tel</td>
         </tr>
     </table>
-
-    <br>
     <a href="/" class="btn btn-primary">Zpět na seznam tříd</a>
 </div>
 </body>

@@ -12,13 +12,10 @@
     <table class="table">
         <thead>
         <tr>
-            <th>Třídní učitel:</th>
-            <td th:text="${ucitel.jmeno} + ' '"> Učitel</td>
-            <td th:text="${ucitel.prijmeni}"> Učitel</td>
+            <th th:text="'Třídní učitel: ' +${ucitel.jmeno} + ' ' + ${ucitel.prijmeni}" class="float-right"></th>
         </tr>
         </thead>
         <tbody>
-
         <th>Studenti:</th>
         <table th:each="student: ${studenti}" class="table">
             <tr>
@@ -27,8 +24,6 @@
             </tr>
         </table>
         </tbody>
-
-        <br>
         <a href="/" class="btn btn-primary">Zpět na seznam tříd</a>
     </table>
 </div>
