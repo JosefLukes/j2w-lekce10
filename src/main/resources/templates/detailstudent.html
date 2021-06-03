@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="cs" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Seznam školních tříd</title>
+</head>
+<body>
+<h1>Třída <a th:href="@{'/' + ${trida}}" th:text="${trida}"> 9.X</a></h1>
+
+<table>
+    <tr>
+        <th>Student:</th>
+        <td th:text="${student.jmeno} + ' '"> Student</td>
+        <td th:text="${student.prijmeni}"> Student</td>
+    </tr>
+</table>
+<table>
+    <h2>Rodiče: </h2>
+    <tr>
+        <th> Jméno Příjmení</th>
+        <th> Rodič telefon</th>
+        <th> Rodič email</th>
+    </tr>
+    <tr th:each="rodic: ${rodice}">
+        <td th:text="${rodic.jmeno} + ' ' + ${rodic.prijmeni}"> Rodič</td>
+        <td th:if="${rodic.telefon} != null" th:text="${rodic.telefon}"> Rodič tel</td>
+        <td th:if="${rodic.email} != null" th:text="${rodic.email}"> Rodič tel</td>
+    </tr>
+</table>
+
+<br>
+<a href="/">Zpět na seznam tříd</a>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="cs" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Seznam školních tříd</title>
+</head>
+<body>
+<h1>Třída <span th:text="${trida}"> 9.X</span>  </h1>
+
+<table>
+    <thead>
+    <tr>
+
+        <th>Třídní učitel: </th>
+        <td  th:text="${ucitel.jmeno} + ' '"> Učitel </td>
+        <td  th:text="${ucitel.prijmeni}"> Učitel </td>
+
+    </tr>
+    </thead>
+    <tbody>
+    <th>Studenti: </th>
+    <table  th:each="student: ${studenti}">
+        <tr>
+            <a th:href="@{'/' + ${trida} +'/' + ${student.id}}" th:text="${student.jmeno} + ' ' + ${student.prijmeni}" >Jan</a>
+        </tr>
+    </table>
+    </tbody>
+<table>
+    <br>
+    <a href="/">Zpět na seznam tříd</a>
+</body>
+</html>

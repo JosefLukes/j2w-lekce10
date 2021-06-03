@@ -1,10 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Seznam školních tříd</title>
 </head>
 <body>
+<h1>Seznam tříd</h1>
+<table>
+    <thead>
+    <tr>
 
+        <th>Název třídy</th>
+    </tr>
+    </thead>
+    <tbody>
+    <table  th:each="trida: ${tridy}">
+        <tr>
+        <a th:href="@{'/' + ${trida.nazev}}" th:text="${trida.nazev}" >Jan</a>
+        </tr>
+    </table>
+    </tbody>
+<table>
 </body>
 </html>
